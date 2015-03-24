@@ -7,6 +7,7 @@ from static_template_view.views import render_404
 from util.views import ensure_valid_course_key as edx_ensure_valid_course_key
 
 def ensure_valid_course_key(view_func):
+    
     """Render 404 template on invalid course key.
 
     This function is based on the eponymous function from edx in util.views. It
@@ -15,7 +16,6 @@ def ensure_valid_course_key(view_func):
     raised.
     """
     edx_inner = edx_ensure_valid_course_key(view_func)
-
     @wraps(view_func)
     def inner(request, *args, **kwargs):
         try:

@@ -3,14 +3,11 @@ import time
 from datetime import datetime
 from StringIO import StringIO
 
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
 from django.utils.formats import date_format
 from django_countries import countries
-
-from opaque_keys.edx.keys import CourseKey
-from xmodule.modulestore.django import modulestore
 
 from fun.utils.views import ensure_valid_course_key
 from fun.utils.views import staff_required, staff_required_or_level
@@ -169,6 +166,7 @@ def date_to_js_timestamp(date):
         python timestamp.
     """
     return time.mktime(date.timetuple())*1000
+<<<<<<< HEAD
 
 @ensure_valid_course_key
 @staff_required_or_level('staff')
